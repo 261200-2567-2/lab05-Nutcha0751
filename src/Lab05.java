@@ -1,32 +1,24 @@
 public class Lab05 {
     public static void main(String[] args) {
-        baseCharacter Gunner = new baseCharacter("Gunner", 20, 10);
-        baseCharacter Archer = new baseCharacter("Archer", 15, 15);
+        Gunner g = new Gunner("Gunner");
+        Knight k = new Knight("Knight");
+        g.showStatus();
+        k.showStatus();
 
-        baseAccessories Boots = new baseAccessories("Boots", 3);
-        baseAccessories Armor  = new baseAccessories("Armor", 5);
+        Boots b = new Boots("Boots");
+        Armor a = new Armor("Armor");
 
-        //Gunner.showStatus();
-        //Archer.showStatus();
+        g.equip(b);
+        g.equip(a);
+        k.equip(b);
 
-        // ใส่ Accessories
-        Gunner.equipAccessory(Boots);
-        Archer.equipAccessory(Armor);
-        Archer.equipAccessory(Boots);
-        Gunner.showStatus();
-        Archer.showStatus();
+        b.upgrade();
+        b.upgrade();
+        a.upgrade();
 
-        // อัปเกรด Accessories
-        Boots.upgrade();
-        Boots.upgrade();
-        Armor.upgrade();
-
-        // แสดงข้อมูล Accessories
-        Boots.showAccessoryInfo();
-        Armor.showAccessoryInfo();
-
-        // ถอด Accessories
-        Archer.unequipAccessory(Boots);
-        Archer.showStatus();
+        g.shot(k);
+        k.showStatus();
+        k.stab(g);
+        g.showStatus();
     }
 }
